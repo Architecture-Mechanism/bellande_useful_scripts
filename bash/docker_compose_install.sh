@@ -1,0 +1,17 @@
+# Copyright © 2024 Ronaldson Bellande
+#!/bin/bash
+
+set -e
+
+sudo apt-get update
+sudo apt-get install -y curl
+
+COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d '"' -f 4)
+
+sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+
+echo "Docker Compose has been successfully installed!"

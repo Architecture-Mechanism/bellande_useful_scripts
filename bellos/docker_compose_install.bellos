@@ -1,5 +1,5 @@
 # Copyright © 2024 Ronaldson Bellande
-#!/bin/bash
+#!/usr/bin/env bellos
 
 sudo apt-get update
 sudo apt-get install -y curl
